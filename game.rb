@@ -12,12 +12,19 @@ class Game
   end
 
   def code_maker
-    # Code here
-    puts 'im here Maker'
+    puts "\nCODEMAKER SELECTED!"
+    play_game(CodeMaker.new)
   end
 
   def code_breaker
-    # Code here
-    puts 'im here breaker'
+    puts "\nCODEBREAKER SELECTED!"
+    play_game(CodeBreaker.new)
+  end
+
+  def play_game(code)
+    12.times do
+      code.show_board
+      code.process_guess(guess)
+    end
   end
 end
