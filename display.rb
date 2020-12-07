@@ -46,7 +46,7 @@ module Display
 
   def disp_array(code)
     print 'Last Guess: '
-    code.each { |x| print color(x).to_s}
+    code.each { |x| print color(x).to_s }
   end
 
   def disp_hint(hint)

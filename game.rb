@@ -18,13 +18,20 @@ class Game
 
   def code_breaker
     puts "\nCODEBREAKER SELECTED!"
-    play_game(CodeBreaker.new)
+    code = CodeBreaker.new
+    play_game(code)
+    lose unless code.solved
   end
 
   def play_game(code)
     12.times do
       code.show_board
       code.process_guess(guess)
+      next unless code.solved
+
+      code.show_board
+      win
+      break
     end
   end
 end

@@ -15,6 +15,14 @@ module Message
     puts ''
   end
 
+  def win
+    puts "\nCODE SOLVED. Congratulations!"
+  end
+
+  def lose
+    puts "\nYOU DID NOT SOLVE THE CODE IN TIME. TRY AGAIN!"
+  end
+
   def menu
     puts "\t\tGAME OPTIONS"
     puts "\n>START"
@@ -35,9 +43,10 @@ module Message
   def help
     puts "\n\t\t\t\t   GAME RULES",
          "\nMastermind is a two player game. When the game starts, you will have to choose between",
-         'being the Codemaker or the Codebreaker. The Codemaker will be asked to pick a 4 digit CODE ',
-         "using (1-6) in the terminal. For example input code 2345 #{color('2')}#{color('3')}#{color('4')}#{color('5')}",
+         'being the Codemaker or the Codebreaker. The Codemaker will be asked to pick a 4 digit CODE using',
+         " (1-6) in the terminal. For example input code 2345 #{color('2')}#{color('3')}#{color('4')}#{color('5')}",
          "\nThe Codebreaker has 12 attempts to guess the CODE by entering a 4 digit code into the terminal",
+         'After each input, the codebreaker will be shown his entree with a hint to help',
          "Ex.#{color('2')}#{color('3')}#{color('5')}#{color('4')} #{clue('*')}#{clue('*')}#{clue('?')}#{clue('?')}",
          "#{clue('*')}#{clue('?')} represent clues. A #{clue('*')} means a number is present in CODE and in CORRECT",
          "position. #{clue('?')} means the number is present in CODE. Codebreaker wins when all 4 digits are CORRECT"
