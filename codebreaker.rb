@@ -12,4 +12,11 @@ class CodeBreaker < Code
     code_array = [rand(1..6), rand(1..6), rand(1..6), rand(1..6)]
     @secret_code = code_array.map(&:to_s)
   end
+
+  def process_guess
+    @last_guess = guess
+    @secret_hint = [' ', ' ', ' ', ' ']
+    check_exact
+    check_close
+  end
 end

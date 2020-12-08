@@ -16,11 +16,17 @@ module Message
   end
 
   def win
-    puts "\nCODE SOLVED. Congratulations!"
+    puts "\nYOU WIN. CONGRATULATIONS"
   end
 
   def lose
-    puts "\nYOU DID NOT SOLVE THE CODE IN TIME. TRY AGAIN!"
+    puts "\nYOU LOSE. TRY AGAIN"
+  end
+
+  def ask_for_code
+    puts "Please enter a 4 digit code to computer to guess. ,
+          The values of each digit must range from \'1 - 6 \'"
+    print ':> '
   end
 
   def menu

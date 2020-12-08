@@ -16,13 +16,6 @@ class Code
     disp_info(@last_guess, @secret_hint)
   end
 
-  def process_guess(guess)
-    @last_guess = guess
-    @secret_hint = [' ', ' ', ' ', ' ']
-    check_exact
-    check_close
-  end
-
   def solved
     solved?
   end
@@ -42,7 +35,9 @@ class Code
     @secret_hint.each_with_index do |x, index|
       next unless x == ' '
 
-      @secret_code.each { |y| @secret_hint[index] = '?' if @last_guess[index] == y }
+      @secret_code.each_with_index do |y, posit|
+        @secret_hint[index] = '?' if @last_guess[index] == y && @secret_hint[posit] == ' '
+      end
     end
   end
 end

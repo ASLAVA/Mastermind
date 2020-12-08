@@ -63,9 +63,20 @@ module Display
     puts "\nCode Made. Good Luck!"
   end
 
+  def recieve_code
+    ask_for_code
+    code = gets.chomp.downcase.split('')
+    good_code(code)
+  end
+
   def guess
     code_guess
     guess_check(gets.chomp.downcase.split(''))
+  end
+
+  def good_code(code)
+    code.each { |x| recieve_code unless x.to_i.between?(1, 6) }
+    code
   end
 
   def guess_check(guess_tocheck)

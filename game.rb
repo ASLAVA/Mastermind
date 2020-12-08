@@ -13,7 +13,10 @@ class Game
 
   def code_maker
     puts "\nCODEMAKER SELECTED!"
-    play_game(CodeMaker.new)
+    code = CodeMaker.new
+    play_game(code)
+    win unless code.solved
+    lose if code.solved
   end
 
   def code_breaker
@@ -21,16 +24,16 @@ class Game
     code = CodeBreaker.new
     play_game(code)
     lose unless code.solved
+    win if code.solved
   end
 
   def play_game(code)
     12.times do
       code.show_board
-      code.process_guess(guess)
+      code.process_guess
       next unless code.solved
 
       code.show_board
-      win
       break
     end
   end
